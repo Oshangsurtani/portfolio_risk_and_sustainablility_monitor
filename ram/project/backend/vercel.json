@@ -1,0 +1,28 @@
+{
+  "version": 2,
+  "name": "walmart-supply-chain-api",
+  "builds": [
+    {
+      "src": "main.py",
+      "use": "@vercel/python",
+      "config": {
+        "maxLambdaSize": "50mb",
+        "runtime": "python3.11"
+      }
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "main.py"
+    }
+  ],
+  "env": {
+    "PYTHONPATH": "/var/task"
+  },
+  "functions": {
+    "main.py": {
+      "runtime": "python3.11"
+    }
+  }
+}
